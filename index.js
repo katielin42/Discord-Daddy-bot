@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 const { prefix, token } = require('./config.json');
+var count = 0;
 
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -18,7 +19,15 @@ client.on('message', msg => {
         msg.reply('Yes, you are a simp.');
     }
     if (msg.content === `${prefix}nWord`) {
-        msg.reply('You have been granted the N pass. Please use it wisely.');
+        count = 0;
+        count +=1;
+        msg.reply(`You have been granted ${count} N word passes. Please use it wisely.`);
+    }
+    if (msg.content === 'nibba' && count != 0) {
+        count -=1;
+        msg.reply(`You have ${count} N word passes left. `);
+    }else if ( msg.content === 'nibba' && count <= 0){
+        msg.reply('You have no N word passes left. Please obtain some more.');
     }
 });
 client.login(token);
