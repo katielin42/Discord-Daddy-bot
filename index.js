@@ -12,6 +12,9 @@ client.on('message', msg => {
     if (msg.content === `${prefix}isGay`) {
       msg.reply('Yes, your mother is gay.');
     }
+    if (msg.content === `${prefix}love`) {
+        msg.reply('Thank you. I love you too <3 ');
+    }
     if (msg.content === `${prefix}isJamesGay`) {
         msg.reply('Yes, James is gay. He eats butthole.');
     }
